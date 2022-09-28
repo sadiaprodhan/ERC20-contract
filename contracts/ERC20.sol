@@ -67,4 +67,11 @@ contract ERC20 {
         balanceOf[to] += amount;
         emit Transfer(address(0), to, amount);
     }
+
+     function _burn(address from, uint256 amount) internal{
+        require(from != address(0), "ERC20: burn from the zero address");
+        totalSupply -= amount;
+        balanceOf[from] -= amount;
+        emit Transfer(from, address(0), amount);
+    }
 }
