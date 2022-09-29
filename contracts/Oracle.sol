@@ -14,8 +14,8 @@ contract Oracle {
         return price;
     }
 
-    function setPrice( uin256 newPrice) external {
-        require(msg.msg.sender == owner, "Oracle: only owner can update");
+    function setPrice( uint256 newPrice) external {
+        require(msg.sender == owner, "Oracle: only owner can update");
         price = newPrice;
     }
 }
